@@ -1,3 +1,5 @@
+#!groovy
+
 node {
    def mvnHome
    stage('Preparation') {
