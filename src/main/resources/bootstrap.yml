@@ -1,3 +1,9 @@
+owms:
+  eureka:
+    password: sa
+  config:
+    password: sa
+
 spring:
   application:
     name: openwms-config
@@ -9,15 +15,13 @@ spring:
 
 server:
   port: ${PORT:8099}
+
 security:
   user:
-    password: sa
-  basic:
-    enabled: false
+    password: ${owms.config.password}
 
 eureka:
-  password: sa
   client:
     serviceUrl:
 # Where to lookup the configserver
-      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:http://user:${eureka.password:}@${PREFIX:}127.0.0.1:8761}/eureka/
+      defaultZone: ${vcap.services.eureka.credentials.uri:http://${owms.eureka.username:user}:${owms.eureka.password:}@${owms.eureka.host:127.0.0.1}:${owms.eureka.port:8761}}/eureka/
