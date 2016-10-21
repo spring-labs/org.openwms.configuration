@@ -1,3 +1,9 @@
 spring:
   main:
     banner-mode: "off"
+
+encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    password: openwms
+    alias: livekey
