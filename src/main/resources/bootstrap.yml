@@ -1,8 +1,8 @@
 owms:
   eureka:
-    password: sa
+    password: ${owms.config.password}
   config:
-    password: sa
+    password: ${owms.config.password}
 
 spring:
   application:
