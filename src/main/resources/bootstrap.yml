@@ -31,9 +31,8 @@ security:
 
 eureka:
   instance:
-    non-secure-port: 80
-    non-secure-port-enabled: true
     hostname: localhost
+    secure-port-enabled: true
   client:
     serviceUrl:
 # Where to lookup the service registry?
