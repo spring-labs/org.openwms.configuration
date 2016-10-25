@@ -32,5 +32,5 @@ security:
 eureka:
   client:
     serviceUrl:
-# Where to lookup the configserver
+# Where to lookup the service registry?
       defaultZone: ${cloud.services.eureka.uri:http://user:sa@127.0.0.1:8761}/eureka/
