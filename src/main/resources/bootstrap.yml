@@ -35,3 +35,8 @@ eureka:
     serviceUrl:
 # Where to lookup the service registry?
       defaultZone: ${cloud.services.eureka.uri:http://user:sa@127.0.0.1}:${owms.eureka.port}/eureka/
+
+logging:
+  level:
+    root: INFO
+    com.netflix.discovery: 'DEBUG'
