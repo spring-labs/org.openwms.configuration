@@ -25,7 +25,7 @@ security:
 logging:
   level:
     root: INFO
-    com.netflix.discovery: 'OFF'
+    com.netflix.discovery: DEBUG
 
 encrypt:
   keyStore:
@@ -37,8 +37,11 @@ encrypt:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${owms.eureka.url:http://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
+      defaultZone: ${owms.eureka.url:https://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
   instance:
     hostname: localhost
     secure-port-enabled: true
-
+    non-secure-port-enabled: false
+    statusPageUrl: https://${eureka.instance.hostName}/info
+    healthCheckUrl: https://${eureka.instance.hostName}/health
+    homePageUrl: https://${eureka.instance.hostName}/
