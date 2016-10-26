@@ -4,13 +4,6 @@ owms:
   config:
     password: '{cipher}AQCD3aCh+t7K3em7TGocVO1pDWlpJm5DoY79a6/sU6Hit31IzaD0SOFspzfRgmPevsDLl754DP4leo+Xx2LHQ+m00dTkYwYzYQeJkHNPK+yE4Q2yamCtbYH1oalYxSpqTiCsfXZ6WjM1tdF6YLrCeCCCTnp9utECT13fY3+3db4UGd5ssibKTaQmR1ilUbhwkNbL1rERSS5Bk6fs7p/YXmboScgJk1sPN3uUyZDKgjalcQkORcfHzoMIvCCCFZ3OjuVwHYDJ8Z8GXx7d8razs9qFjiY1HwfrKxPNeIftyo2KnbKhDqIuG1txj1vZ5tDD4jNSj0Jd+eFlktnBvyrQLLubGKVk73KakKBiQYzOlcZjTuDG4IiKFXlbGKh0IWia46g='
 
-encrypt:
-  keyStore:
-    location: classpath:/server.jks
-    password: openwms
-    alias: livekey
-# set encrypt.key-store.secret as command line parameter or in the cloud environment props!
-
 spring:
   application:
     name: openwms-config
@@ -29,16 +22,23 @@ security:
   user:
     password: ${owms.config.password}
 
-eureka:
-  client:
-    serviceUrl:
-# Where to lookup the service registry ?
-      defaultZone: ${cloud.services.eureka.uri:http://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
-  instance:
-    hostname: localhost
-    secure-port-enabled: true
-
 logging:
   level:
     root: INFO
     com.netflix.discovery: 'OFF'
+
+encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    password: openwms
+    alias: livekey
+# set encrypt.key-store.secret as command line parameter or in the cloud environment props!
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${owms.eureka.url:http://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
+  instance:
+    hostname: localhost
+    secure-port-enabled: true
+
