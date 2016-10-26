@@ -30,13 +30,13 @@ security:
     password: ${owms.config.password}
 
 eureka:
+  client:
+    serviceUrl:
+# Where to lookup the service registry ?
+      defaultZone: ${cloud.services.eureka.uri:http://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
   instance:
     hostname: localhost
     secure-port-enabled: true
-  client:
-    serviceUrl:
-# Where to lookup the service registry?
-      defaultZone: ${cloud.services.eureka.uri:http://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
 
 logging:
   level:
