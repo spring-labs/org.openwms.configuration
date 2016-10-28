@@ -34,12 +34,15 @@ encrypt:
     alias: livekey
 # set encrypt.key-store.secret as command line parameter or in the cloud environment props!
 
+health:
+  config:
+    enabled: true
 eureka:
   client:
     serviceUrl:
       defaultZone: ${owms.eureka.url:https://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
   instance:
-    hostname: openwms-configuration.herokuapp.com
+    hostname: localhost
     secure-port-enabled: true
     non-secure-port-enabled: false
     metadata-map:
