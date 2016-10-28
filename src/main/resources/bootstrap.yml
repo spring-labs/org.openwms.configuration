@@ -22,11 +22,6 @@ security:
   user:
     password: ${owms.config.password}
 
-logging:
-  level:
-    root: INFO
-    com.netflix.discovery: INFO
-
 encrypt:
   keyStore:
     location: classpath:/server.jks
