@@ -1,8 +1,8 @@
 owms:
   eureka:
-    password: '{cipher}AQCD3aCh+t7K3em7TGocVO1pDWlpJm5DoY79a6/sU6Hit31IzaD0SOFspzfRgmPevsDLl754DP4leo+Xx2LHQ+m00dTkYwYzYQeJkHNPK+yE4Q2yamCtbYH1oalYxSpqTiCsfXZ6WjM1tdF6YLrCeCCCTnp9utECT13fY3+3db4UGd5ssibKTaQmR1ilUbhwkNbL1rERSS5Bk6fs7p/YXmboScgJk1sPN3uUyZDKgjalcQkORcfHzoMIvCCCFZ3OjuVwHYDJ8Z8GXx7d8razs9qFjiY1HwfrKxPNeIftyo2KnbKhDqIuG1txj1vZ5tDD4jNSj0Jd+eFlktnBvyrQLLubGKVk73KakKBiQYzOlcZjTuDG4IiKFXlbGKh0IWia46g='
+    password: '{cipher}AQCC+1s96d0c73a2dUj4+DSQPD0XuVdK5zQ5A/A4UDfRkXemjXKOnDS4y4pwEKEpb4AJRj6zXLbOC3jWddDWf4q9Cl9KpfwQ4eTCM2ezv0GipZk+bzxgfZtYZqBhXqkU4ruNfhRizhkM3IQhWSh6d9k/9bdOD5rClY/WlLXUfatVyTiRKcaLj9db1TWZptxOe494bfbhbKZwTiBu+QjzSMtFUMhM/92IZm6k035v6+nJtChzMW4+Js/zwR1PwW4kiKgtlqEhRLLXIKXMZtMZFrrXBtQHgdYb3MUy2FmD32ZRXhp/dpZ/Zup+T9I587PgQw6ql1DsIBSpEBgctkKmb1dGT4SBEI+TiVW3WdOEctVoiLsDsTQMrATHOZqmdy4Zf58='
   config:
-    password: '{cipher}AQCD3aCh+t7K3em7TGocVO1pDWlpJm5DoY79a6/sU6Hit31IzaD0SOFspzfRgmPevsDLl754DP4leo+Xx2LHQ+m00dTkYwYzYQeJkHNPK+yE4Q2yamCtbYH1oalYxSpqTiCsfXZ6WjM1tdF6YLrCeCCCTnp9utECT13fY3+3db4UGd5ssibKTaQmR1ilUbhwkNbL1rERSS5Bk6fs7p/YXmboScgJk1sPN3uUyZDKgjalcQkORcfHzoMIvCCCFZ3OjuVwHYDJ8Z8GXx7d8razs9qFjiY1HwfrKxPNeIftyo2KnbKhDqIuG1txj1vZ5tDD4jNSj0Jd+eFlktnBvyrQLLubGKVk73KakKBiQYzOlcZjTuDG4IiKFXlbGKh0IWia46g='
+    password: '{cipher}AQBqT1oWGCSp3p3rXKJ7zJZtBZKxVNm+xSP8L4F948EAAYK9B4IDpwxLBiwZkIYug7ZEgu1aDdkS9D7pMIUfHIY6rt170Lj5kaOGLpcUgMxr7h8QfLZwJ/TCqzNhIyZ/U8HQtEYQsj86tXSFdnkDBgcevojyOf9Kqpcre7ADAUxfg4HcEGX1h1IbYbR+NIHw2SGaTSbqxBVZihQufzEnGAYV8NdvRKlrrTsK5KFm61WsR9Ty/GS9yxJ7wCoZte9iOXBuT+XEJjpniNmXtaTh5XhLhPpzBZ2qUBOjgDbdcR3Ic0ixOFT0NqmPEcmyzLApUDZyVgLnyt19cIs07lRYYqRphnVwIwU61+tIhER0HDQzVRi+keJS4OavOybqJBUwTTA='
 
 spring:
   application:
@@ -42,8 +42,18 @@ eureka:
     non-secure-port-enabled: false
     metadata-map:
       username: user
-      password: sa
+      password: ${owms.config.password}
     statusPageUrl: https://${eureka.instance.hostName}/info
     healthCheckUrl: https://${eureka.instance.hostName}/health
     homePageUrl: https://${eureka.instance.hostName}/
 # set eureka.instance.hostname as command line param or in cloud env props
+
+---
+spring:
+  profiles: DEV
+
+owms:
+  eureka:
+    password: sa
+  config:
+    password: sa
