@@ -33,18 +33,17 @@ health:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${owms.eureka.url:http://user:sa@127.0.0.1:8761}/eureka/
+      defaultZone: ${owms.eureka.url}/eureka/
   instance:
     hostname: openwms-configuration.herokuapp.com
     secure-port-enabled: true
     non-secure-port-enabled: false
-    metadata-map:
-      username: user
-      password: ${owms.config.password}
     statusPageUrl: https://${eureka.instance.hostName}/info
     healthCheckUrl: https://${eureka.instance.hostName}/health
     homePageUrl: https://${eureka.instance.hostName}/
-# set eureka.instance.hostname as command line param or in cloud env props
+    metadata-map:
+      username: user
+      password: ${owms.config.password}
 
 ---
 spring:
