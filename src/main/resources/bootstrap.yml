@@ -1,8 +1,8 @@
 owms:
-  eureka:
-    password: '{cipher}AQCC+1s96d0c73a2dUj4+DSQPD0XuVdK5zQ5A/A4UDfRkXemjXKOnDS4y4pwEKEpb4AJRj6zXLbOC3jWddDWf4q9Cl9KpfwQ4eTCM2ezv0GipZk+bzxgfZtYZqBhXqkU4ruNfhRizhkM3IQhWSh6d9k/9bdOD5rClY/WlLXUfatVyTiRKcaLj9db1TWZptxOe494bfbhbKZwTiBu+QjzSMtFUMhM/92IZm6k035v6+nJtChzMW4+Js/zwR1PwW4kiKgtlqEhRLLXIKXMZtMZFrrXBtQHgdYb3MUy2FmD32ZRXhp/dpZ/Zup+T9I587PgQw6ql1DsIBSpEBgctkKmb1dGT4SBEI+TiVW3WdOEctVoiLsDsTQMrATHOZqmdy4Zf58='
+#  eureka:
+#    password: 'cipher}AQCC+1s96d0c73a2dUj4+DSQPD0XuVdK5zQ5A/A4UDfRkXemjXKOnDS4y4pwEKEpb4AJRj6zXLbOC3jWddDWf4q9Cl9KpfwQ4eTCM2ezv0GipZk+bzxgfZtYZqBhXqkU4ruNfhRizhkM3IQhWSh6d9k/9bdOD5rClY/WlLXUfatVyTiRKcaLj9db1TWZptxOe494bfbhbKZwTiBu+QjzSMtFUMhM/92IZm6k035v6+nJtChzMW4+Js/zwR1PwW4kiKgtlqEhRLLXIKXMZtMZFrrXBtQHgdYb3MUy2FmD32ZRXhp/dpZ/Zup+T9I587PgQw6ql1DsIBSpEBgctkKmb1dGT4SBEI+TiVW3WdOEctVoiLsDsTQMrATHOZqmdy4Zf58='
   config:
-    password: '{cipher}AQBqT1oWGCSp3p3rXKJ7zJZtBZKxVNm+xSP8L4F948EAAYK9B4IDpwxLBiwZkIYug7ZEgu1aDdkS9D7pMIUfHIY6rt170Lj5kaOGLpcUgMxr7h8QfLZwJ/TCqzNhIyZ/U8HQtEYQsj86tXSFdnkDBgcevojyOf9Kqpcre7ADAUxfg4HcEGX1h1IbYbR+NIHw2SGaTSbqxBVZihQufzEnGAYV8NdvRKlrrTsK5KFm61WsR9Ty/GS9yxJ7wCoZte9iOXBuT+XEJjpniNmXtaTh5XhLhPpzBZ2qUBOjgDbdcR3Ic0ixOFT0NqmPEcmyzLApUDZyVgLnyt19cIs07lRYYqRphnVwIwU61+tIhER0HDQzVRi+keJS4OavOybqJBUwTTA='
+    password: '{cipher}AQBy6/rJxC+pqNja7RS4dCuT6whXeU068Yj2oPx1/e+WnridvSVikheIEuVr/FJhVZIOl5GkC3RX/xBlUCIDgIZHlPerMBXnV+9nh8wklIAh5z4KSFW7I5YtNoH+GkkUaOvnLi2XQHaW2aQGliwLUxx5LWjricxkcCf4FwnZXrmS2Iq5cENuDe++cPy5rJL1/8v/Q1bhVSrTj4m99RnMC/FXhpSQjb1on+CEp5sOqPmepmxPMxa3t0Uulviff0PtBaJzsjpoLr6eXmfc0/fVivrHv8hoAiNOq0eSqcDJzCLAYZSvWrf+kF0+EegphfpslXE0T0VKgXFPMbM2/Z29sK/D0/FnjM3IZNN45m/11lQT3iFJl2xgmZCAKj588hdkMyY='
 
 spring:
   application:
@@ -24,9 +24,9 @@ security:
 
 encrypt:
   keyStore:
-    location: classpath:/server.jks
+    location: classpath:server.jks
     alias: livekey
-# set encrypt.key-store.secret and encrypt.key-store.password as command line parameter or in the cloud environment props!
+# set encrypt.keyStore.secret (not encrypt.key-store.secret) and encrypt.keyStore.password as command line parameter or in the cloud environment props!
 
 health:
   config:
@@ -35,7 +35,7 @@ health:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${owms.eureka.url:http://user:sa@127.0.0.1}:${owms.eureka.port:8761}/eureka/
+      defaultZone: ${owms.eureka.url:http://user:sa@127.0.0.1:8761}/eureka/
   instance:
     hostname: localhost
     secure-port-enabled: true
@@ -53,7 +53,15 @@ spring:
   profiles: DEV
 
 owms:
-  eureka:
-    password: sa
+#  eureka:
+#    password: sa
   config:
-    password: sa
+#    password: sa
+
+eureka:
+  instance:
+    secure-port-enabled: false
+    non-secure-port-enabled: true
+    statusPageUrl: http://${eureka.instance.hostName}/info
+    healthCheckUrl: http://${eureka.instance.hostName}/health
+    homePageUrl: http://${eureka.instance.hostName}/
