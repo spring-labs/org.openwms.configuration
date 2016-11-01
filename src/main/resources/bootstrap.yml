@@ -1,8 +1,6 @@
 owms:
-#  eureka:
-#    password: 'cipher}AQCC+1s96d0c73a2dUj4+DSQPD0XuVdK5zQ5A/A4UDfRkXemjXKOnDS4y4pwEKEpb4AJRj6zXLbOC3jWddDWf4q9Cl9KpfwQ4eTCM2ezv0GipZk+bzxgfZtYZqBhXqkU4ruNfhRizhkM3IQhWSh6d9k/9bdOD5rClY/WlLXUfatVyTiRKcaLj9db1TWZptxOe494bfbhbKZwTiBu+QjzSMtFUMhM/92IZm6k035v6+nJtChzMW4+Js/zwR1PwW4kiKgtlqEhRLLXIKXMZtMZFrrXBtQHgdYb3MUy2FmD32ZRXhp/dpZ/Zup+T9I587PgQw6ql1DsIBSpEBgctkKmb1dGT4SBEI+TiVW3WdOEctVoiLsDsTQMrATHOZqmdy4Zf58='
   config:
-    password: '{cipher}AQBy6/rJxC+pqNja7RS4dCuT6whXeU068Yj2oPx1/e+WnridvSVikheIEuVr/FJhVZIOl5GkC3RX/xBlUCIDgIZHlPerMBXnV+9nh8wklIAh5z4KSFW7I5YtNoH+GkkUaOvnLi2XQHaW2aQGliwLUxx5LWjricxkcCf4FwnZXrmS2Iq5cENuDe++cPy5rJL1/8v/Q1bhVSrTj4m99RnMC/FXhpSQjb1on+CEp5sOqPmepmxPMxa3t0Uulviff0PtBaJzsjpoLr6eXmfc0/fVivrHv8hoAiNOq0eSqcDJzCLAYZSvWrf+kF0+EegphfpslXE0T0VKgXFPMbM2/Z29sK/D0/FnjM3IZNN45m/11lQT3iFJl2xgmZCAKj588hdkMyY='
+    password: '{cipher}AQAVmwzi/JEKNgFSPOXYSabqxPGBQFao1cIy2w53OKrAgNB/1fJp1U4rVlASQ1BNO8uhswXhy7PwtsAEWECGY6+cVNMnU9Q9P9xnvJxP7gdjhIzqLkGXm6bU8pSHTkcq8nAvFE4O/4ttQzhQRjdVOaUV/j5hGuS7yhHuvtxGPvc8w7A8eytJZVTGoWupDPq+cUSQbno72ceVenijeD2/IPJAbXdrATcFODnU79DVJSww47tF61P5Z5F87XxM4VAciYATJJyt8Y2XEtdvRvyQhECPy9+MSbMLqH8bop5DYYZaVZMfEqweYs9AqtTNop5GYbVU+OMTXcxl6+Uq/iSSfeVJX2XQRGlLLF/tRrrrQx5w6StThQVEMmZFlh2i9A5jxms='
 
 spring:
   application:
@@ -53,10 +51,10 @@ spring:
   profiles: DEV
 
 owms:
-#  eureka:
-#    password: sa
+  eureka:
+    url: http://user:sa@127.0.0.1:8761
   config:
-#    password: sa
+    password: sa
 
 eureka:
   instance:
