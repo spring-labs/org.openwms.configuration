@@ -35,7 +35,7 @@ eureka:
     serviceUrl:
       defaultZone: ${owms.eureka.url:http://user:sa@127.0.0.1:8761}/eureka/
   instance:
-    hostname: localhost
+    hostname: openwms-configuration.herokuapp.com
     secure-port-enabled: true
     non-secure-port-enabled: false
     metadata-map:
@@ -58,6 +58,7 @@ owms:
 
 eureka:
   instance:
+    hostname: localhost
     secure-port-enabled: false
     non-secure-port-enabled: true
     statusPageUrl: http://${eureka.instance.hostName}/info
