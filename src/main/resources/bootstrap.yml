@@ -1,7 +1,3 @@
-owms:
-  config:
-    password: '{cipher}AQAVmwzi/JEKNgFSPOXYSabqxPGBQFao1cIy2w53OKrAgNB/1fJp1U4rVlASQ1BNO8uhswXhy7PwtsAEWECGY6+cVNMnU9Q9P9xnvJxP7gdjhIzqLkGXm6bU8pSHTkcq8nAvFE4O/4ttQzhQRjdVOaUV/j5hGuS7yhHuvtxGPvc8w7A8eytJZVTGoWupDPq+cUSQbno72ceVenijeD2/IPJAbXdrATcFODnU79DVJSww47tF61P5Z5F87XxM4VAciYATJJyt8Y2XEtdvRvyQhECPy9+MSbMLqH8bop5DYYZaVZMfEqweYs9AqtTNop5GYbVU+OMTXcxl6+Uq/iSSfeVJX2XQRGlLLF/tRrrrQx5w6StThQVEMmZFlh2i9A5jxms='
-
 spring:
   application:
     name: openwms-config
@@ -12,6 +8,14 @@ spring:
       server:
         git:
           uri: https://github.com/spring-labs/org.openwms.projects.config
+
+owms:
+  eureka:
+    # Override this in cloud environment!
+    url: http://user:sa@127.0.0.1:8761
+  config:
+    # Override this in cloud environment!
+    password: sa
 
 server:
   port: ${PORT:8099}
@@ -35,31 +39,25 @@ eureka:
     serviceUrl:
       defaultZone: ${owms.eureka.url}/eureka/
   instance:
-    hostname: openwms-configuration.herokuapp.com
-    secure-port-enabled: true
-    non-secure-port-enabled: false
-    statusPageUrl: https://${eureka.instance.hostName}/info
-    healthCheckUrl: https://${eureka.instance.hostName}/health
-    homePageUrl: https://${eureka.instance.hostName}/
+    secure-port-enabled: false
+    non-secure-port-enabled: true
     metadata-map:
       username: user
       password: ${owms.config.password}
 
 ---
 spring:
-  profiles: DEV
+  profiles: CLOUD
 
 owms:
-  eureka:
-    url: http://user:sa@127.0.0.1:8761
   config:
-    password: sa
+    password: '{cipher}AQAVmwzi/JEKNgFSPOXYSabqxPGBQFao1cIy2w53OKrAgNB/1fJp1U4rVlASQ1BNO8uhswXhy7PwtsAEWECGY6+cVNMnU9Q9P9xnvJxP7gdjhIzqLkGXm6bU8pSHTkcq8nAvFE4O/4ttQzhQRjdVOaUV/j5hGuS7yhHuvtxGPvc8w7A8eytJZVTGoWupDPq+cUSQbno72ceVenijeD2/IPJAbXdrATcFODnU79DVJSww47tF61P5Z5F87XxM4VAciYATJJyt8Y2XEtdvRvyQhECPy9+MSbMLqH8bop5DYYZaVZMfEqweYs9AqtTNop5GYbVU+OMTXcxl6+Uq/iSSfeVJX2XQRGlLLF/tRrrrQx5w6StThQVEMmZFlh2i9A5jxms='
 
 eureka:
   instance:
-    hostname: localhost
-    secure-port-enabled: false
-    non-secure-port-enabled: true
-    statusPageUrl: http://${eureka.instance.hostName}/info
-    healthCheckUrl: http://${eureka.instance.hostName}/health
-    homePageUrl: http://${eureka.instance.hostName}/
+    hostname: openwms-configuration.herokuapp.com
+    secure-port-enabled: true
+    non-secure-port-enabled: false
+    statusPageUrl: https://${eureka.instance.hostName}/info
+    healthCheckUrl: https://${eureka.instance.hostName}/health
+    homePageUrl: https://${eureka.instance.hostName}/
