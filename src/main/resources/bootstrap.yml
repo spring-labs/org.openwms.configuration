@@ -26,7 +26,7 @@ security:
 
 encrypt:
   keyStore:
-    location: classpath:server.jks
+    location: classpath:/server.jks
     alias: livekey
 # set encrypt.keyStore.secret (not encrypt.key-store.secret) and encrypt.keyStore.password as command line parameter or in the cloud environment props!
 
