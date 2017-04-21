@@ -82,7 +82,7 @@
     </dependencies>
 
     <build>
-        <finalName>openwms-services</finalName>
+        <finalName>openwms-configuration</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
