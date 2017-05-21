@@ -35,6 +35,7 @@ eureka:
     metadata-map:
       username: user
       password: ${security.user.password}
+      protocol: http
 
 ---
 spring:
