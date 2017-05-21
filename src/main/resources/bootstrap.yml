@@ -1,8 +1,6 @@
 spring:
   application:
     name: openwms-config
-  main:
-    banner-mode: "OFF"
   cloud:
     config:
       server:
@@ -12,7 +10,7 @@ spring:
 owms:
   eureka:
     # Override this in cloud environment!
-    url: http://user:sa@127.0.0.1:8761
+    url: http://user:sa@localhost:8761
   config:
     password: sa
 
@@ -22,12 +20,6 @@ server:
 security:
   user:
     password: sa
-
-encrypt:
-  keyStore:
-    location: classpath:/server.jks
-    alias: livekey
-# set encrypt.keyStore.secret (not encrypt.key-store.secret) and encrypt.keyStore.password as command line parameter or in the cloud environment props!
 
 health:
   config:
@@ -47,10 +39,18 @@ eureka:
 ---
 spring:
   profiles: CLOUD
+  main:
+    banner-mode: "OFF"
 
 security:
   user:
     password: '{cipher}AQAVmwzi/JEKNgFSPOXYSabqxPGBQFao1cIy2w53OKrAgNB/1fJp1U4rVlASQ1BNO8uhswXhy7PwtsAEWECGY6+cVNMnU9Q9P9xnvJxP7gdjhIzqLkGXm6bU8pSHTkcq8nAvFE4O/4ttQzhQRjdVOaUV/j5hGuS7yhHuvtxGPvc8w7A8eytJZVTGoWupDPq+cUSQbno72ceVenijeD2/IPJAbXdrATcFODnU79DVJSww47tF61P5Z5F87XxM4VAciYATJJyt8Y2XEtdvRvyQhECPy9+MSbMLqH8bop5DYYZaVZMfEqweYs9AqtTNop5GYbVU+OMTXcxl6+Uq/iSSfeVJX2XQRGlLLF/tRrrrQx5w6StThQVEMmZFlh2i9A5jxms='
+
+encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    alias: livekey
+# set encrypt.keyStore.secret (not encrypt.key-store.secret) and encrypt.keyStore.password as command line parameter or in the cloud environment props!
 
 eureka:
   instance:
