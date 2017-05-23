@@ -29,6 +29,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${owms.eureka.url}/eureka/
+    healthcheck:
+      enabled: true
   instance:
     secure-port-enabled: false
     non-secure-port-enabled: true
