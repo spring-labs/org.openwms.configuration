@@ -5,7 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/spring-labs/org.openwms.projects.config
+          uri: https://github.com/spring-labs/org.openwms.zile
+          search-paths: conf
+          clone-on-start: true
 
 owms:
   eureka:
