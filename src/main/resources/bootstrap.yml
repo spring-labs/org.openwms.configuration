@@ -8,6 +8,9 @@ spring:
           uri: https://github.com/spring-labs/org.openwms.zile
           search-paths: conf
           clone-on-start: true
+health:
+  config:
+    enabled: true
 
 owms:
   eureka:
@@ -23,16 +26,10 @@ security:
   user:
     password: sa
 
-health:
-  config:
-    enabled: true
-
 eureka:
   client:
     serviceUrl:
       defaultZone: ${owms.eureka.url}/eureka/
-    healthcheck:
-      enabled: true
   instance:
     secure-port-enabled: false
     non-secure-port-enabled: true
