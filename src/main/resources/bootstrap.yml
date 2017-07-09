@@ -24,12 +24,12 @@ server:
 
 security:
   user:
-    password: sa
+    password: ${OWMS_SECURITY_BASIC_PASSWORD:sa}
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${owms.eureka.url}/eureka/
+      defaultZone: ${OWMS_EUREKA_URL:http://user:sa@localhost:8761}/eureka/
   instance:
     secure-port-enabled: false
     non-secure-port-enabled: true
