@@ -16,8 +16,6 @@ owms:
   eureka:
     # Override this in cloud environment!
     url: ${OWMS_EUREKA_URL:http://user:sa@localhost:8761}
-  config:
-    password: sa
 
 server:
   port: ${PORT:8099}
@@ -25,6 +23,7 @@ server:
 security:
   user:
     password: ${OWMS_SECURITY_BASIC_PASSWORD:sa}
+    name: ${OWMS_SECURITY_BASIC_NAME:user}
 
 eureka:
   client:
@@ -34,19 +33,15 @@ eureka:
     secure-port-enabled: false
     non-secure-port-enabled: true
     metadata-map:
-      username: user
+      username: ${security.user.name}
       password: ${security.user.password}
-      protocol: http
+      protocol: ${OWMS_CONFIGSRV_PROTOCOL:http}
 
 ---
 spring:
   profiles: CLOUD
   main:
     banner-mode: "OFF"
-
-server:
-  # Expected to get this as Openshift environment
-  port: ${OPENSHIFT_DIY_PORT:8099}
 
 security:
   user:
@@ -66,3 +61,5 @@ eureka:
     statusPageUrl: ${OWMS_CONFIGSRV_PROTOCOL:https}://${eureka.instance.hostName}/info
     healthCheckUrl: ${OWMS_CONFIGSRV_PROTOCOL:https}://${eureka.instance.hostName}/health
     homePageUrl: ${OWMS_CONFIGSRV_PROTOCOL:https}://${eureka.instance.hostName}/
+    metadata-map:
+      protocol: ${OWMS_CONFIGSRV_PROTOCOL:https}
