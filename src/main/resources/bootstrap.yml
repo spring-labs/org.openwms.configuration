@@ -18,7 +18,7 @@ owms:
     hostname: localhost
   eureka:
     # Override this in cloud environment!
-    url: ${owms.srv.protocol}://${security.user.name}:${security.user.password}@${owms.srv.hostname}:${server.port}
+    url: http://user:sa@localhost:8761
 
 server:
   port: ${PORT:8099}
@@ -65,8 +65,8 @@ eureka:
     hostname: ${owms.srv.hostname}
     secure-port-enabled: true
     non-secure-port-enabled: false
-    statusPageUrl: ${owms.srv.hostname}://${eureka.instance.hostName}/info
-    healthCheckUrl: ${owms.srv.hostname}://${eureka.instance.hostName}/health
-    homePageUrl: ${owms.srv.hostname}://${eureka.instance.hostName}/
+    statusPageUrl: ${owms.srv.protocol}://${owms.srv.hostname}/info
+    healthCheckUrl: ${owms.srv.protocol}://${owms.srv.hostname}/health
+    homePageUrl: ${owms.srv.protocol}://${owms.srv.hostname}/
     metadata-map:
       protocol: ${owms.srv.protocol}
