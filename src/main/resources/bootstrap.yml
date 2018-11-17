@@ -8,6 +8,10 @@ spring:
           uri: https://github.com/spring-labs/org.openwms.zile
           search-paths: conf
           clone-on-start: true
+  security:
+    user:
+      password: sa
+
 health:
   config:
     enabled: true
@@ -22,10 +26,6 @@ owms:
 
 server:
   port: ${PORT:8099}
-
-security:
-  user:
-    password: sa
 
 eureka:
   client:
