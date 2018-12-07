@@ -35,24 +35,23 @@ eureka:
     secure-port-enabled: false
     non-secure-port-enabled: true
     metadata-map:
-      username: ${security.user.name}
-      password: ${security.user.password}
-      protocol: ${owms.srv.protocol}
+      username: ${spring.security.user.name}
+      password: ${spring.security.user.password}
+      protocol: http
 
 ---
 spring:
   profiles: CLOUD
   main:
     banner-mode: "OFF"
+  security:
+    user:
+      password: '{cipher}AQAVmwzi/JEKNgFSPOXYSabqxPGBQFao1cIy2w53OKrAgNB/1fJp1U4rVlASQ1BNO8uhswXhy7PwtsAEWECGY6+cVNMnU9Q9P9xnvJxP7gdjhIzqLkGXm6bU8pSHTkcq8nAvFE4O/4ttQzhQRjdVOaUV/j5hGuS7yhHuvtxGPvc8w7A8eytJZVTGoWupDPq+cUSQbno72ceVenijeD2/IPJAbXdrATcFODnU79DVJSww47tF61P5Z5F87XxM4VAciYATJJyt8Y2XEtdvRvyQhECPy9+MSbMLqH8bop5DYYZaVZMfEqweYs9AqtTNop5GYbVU+OMTXcxl6+Uq/iSSfeVJX2XQRGlLLF/tRrrrQx5w6StThQVEMmZFlh2i9A5jxms='
 
 owms:
   srv:
     protocol: https
     hostname: openwms-configuration.herokuapp.com
-
-security:
-  user:
-    password: '{cipher}AQAVmwzi/JEKNgFSPOXYSabqxPGBQFao1cIy2w53OKrAgNB/1fJp1U4rVlASQ1BNO8uhswXhy7PwtsAEWECGY6+cVNMnU9Q9P9xnvJxP7gdjhIzqLkGXm6bU8pSHTkcq8nAvFE4O/4ttQzhQRjdVOaUV/j5hGuS7yhHuvtxGPvc8w7A8eytJZVTGoWupDPq+cUSQbno72ceVenijeD2/IPJAbXdrATcFODnU79DVJSww47tF61P5Z5F87XxM4VAciYATJJyt8Y2XEtdvRvyQhECPy9+MSbMLqH8bop5DYYZaVZMfEqweYs9AqtTNop5GYbVU+OMTXcxl6+Uq/iSSfeVJX2XQRGlLLF/tRrrrQx5w6StThQVEMmZFlh2i9A5jxms='
 
 encrypt:
   keyStore:
