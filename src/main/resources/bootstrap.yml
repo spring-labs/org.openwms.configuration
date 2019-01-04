@@ -41,6 +41,12 @@ eureka:
 
 ---
 spring:
+  profiles: INMEM
+server:
+  port: ${PORT:8888}
+
+---
+spring:
   profiles: CLOUD
   main:
     banner-mode: "OFF"
