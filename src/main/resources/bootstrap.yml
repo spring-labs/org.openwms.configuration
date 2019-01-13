@@ -23,21 +23,25 @@ owms:
     hostname: localhost
   eureka:
     url: http://user:sa@localhost:8761
+    zone: ${owms.eureka.url}/eureka/
 
 server:
   port: ${PORT:8099}
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: ${owms.eureka.url}/eureka/
+    instance-info-replication-interval-seconds: 10 # default is 30
+    service-url:
+      defaultZone: ${owms.eureka.zone} # Must be camelCase
   instance:
+    hostname: ${owms.srv.hostname}
     secure-port-enabled: false
     non-secure-port-enabled: true
     metadata-map:
       username: ${spring.security.user.name}
       password: ${spring.security.user.password}
       protocol: ${owms.srv.protocol}
+      zone: ${owms.eureka.zone}
 
 ---
 spring:
@@ -67,11 +71,8 @@ encrypt:
 
 eureka:
   instance:
-    hostname: ${owms.srv.hostname}
     secure-port-enabled: true
     non-secure-port-enabled: false
-    statusPageUrl: ${owms.srv.protocol}://${owms.srv.hostname}/info
-    healthCheckUrl: ${owms.srv.protocol}://${owms.srv.hostname}/health
-    homePageUrl: ${owms.srv.protocol}://${owms.srv.hostname}/
-    metadata-map:
-      protocol: ${owms.srv.protocol}
+    status-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/info
+    health-check-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/health
+    home-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/
