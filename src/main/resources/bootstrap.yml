@@ -8,6 +8,8 @@ spring:
           uri: https://github.com/spring-labs/org.openwms.projects.KARL
           search-paths: conf
           clone-on-start: true
+          default-label: local
+      label: local
   security:
     user:
       password: sa
