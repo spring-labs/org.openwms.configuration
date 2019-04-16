@@ -8,8 +8,6 @@ spring:
           uri: https://github.com/spring-labs/org.openwms.projects.KARL
           search-paths: conf
           clone-on-start: true
-          default-label: local
-      label: local
   security:
     user:
       password: sa
@@ -29,6 +27,14 @@ owms:
 
 server:
   port: ${PORT:8099}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  file: "/tmp/owms/BOOT-COMMON.log"
 
 eureka:
   client:
@@ -72,3 +78,13 @@ eureka:
     status-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/info
     health-check-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/health
     home-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/
+
+---
+spring:
+  profiles: LOCAL
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:config/
+
