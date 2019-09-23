@@ -5,31 +5,30 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>7</version>
+        <version>12</version>
         <relativePath />
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
     <version>1.1.0-SNAPSHOT</version>
     <name>OpenWMS.org Cloud: Configuration Service</name>
-    <url>https://www.interface21.io/docs/core/configuration/index.html</url>
+    <url>https://github.com/spring-labs/org.openwms.configuration</url>
 
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/spring-labs/org.openwms.configuration/issues</url>
+        <url>https://github.com/spring-labs/${project.artifactId}/issues</url>
     </issueManagement>
 
     <distributionManagement>
         <site>
-            <id>ftp-io</id>
-            <name>OpenWMS.org WebSite</name>
-            <url>scp://ftp.interface21.io/docs/core/configuration</url>
+            <id>site</id>
+            <url>scm:git:git@github.com:spring-lab/${project.artifactId}.git</url>
         </site>
     </distributionManagement>
 
     <scm>
-        <url>https://github.com/spring-labs/org.openwms.configuration</url>
-        <connection>scm:git:git://github.com/spring-labs/org.openwms.configuration.git</connection>
-        <developerConnection>scm:git:git@github.com:spring-labs/org.openwms.configuration.git</developerConnection>
+        <url>https://github.com/spring-labs/${project.artifactId}</url>
+        <connection>scm:git:https://${scmuser}github.com/spring-labs/${project.artifactId}.git</connection>
+        <developerConnection>scm:git:https://${scmuser}github.com/spring-labs/${project.artifactId}.git</developerConnection>
     </scm>
 
     <developers>
@@ -52,7 +51,7 @@
 
     <ciManagement>
         <system>travis</system>
-        <url>https://travis-ci.com/spring-labs/org.openwms.configuration</url>
+        <url>https://travis-ci.com/spring-labs/${project.artifactId}</url>
         <notifiers>
             <notifier>
                 <type>mail</type>
@@ -96,6 +95,7 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- Spring Dependencies -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
@@ -131,6 +131,7 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
@@ -147,5 +148,4 @@
             </releases>
         </repository>
     </repositories>
-
 </project>

@@ -34,7 +34,7 @@ management:
       exposure:
         include: "*"
 logging:
-  file: "/tmp/owms/BOOT-COMMON.log"
+  file: "/tmp/owms/BOOT-CORE.log"
 
 eureka:
   client:
@@ -53,7 +53,7 @@ eureka:
 
 ---
 spring:
-  profiles: CLOUD
+  profiles: HEROKU
   main:
     banner-mode: "OFF"
   security:
