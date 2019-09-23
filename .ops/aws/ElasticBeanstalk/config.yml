@@ -1,12 +1,12 @@
 branch-defaults:
   master:
-    environment: Team4PbghArchaius-env
+    environment: openwms-configuration-DEVELOPMENT
 environment-defaults:
   Team4PbghArchaius-env:
     branch: null
     repository: null
 global:
-  application_name: team4-pbgh-archaius
+  application_name: openwms-configuration
   default_ec2_keyname: null
   default_platform: arn:aws:elasticbeanstalk:eu-central-1::platform/Java 8 running
     on 64bit Amazon Linux/2.8.3

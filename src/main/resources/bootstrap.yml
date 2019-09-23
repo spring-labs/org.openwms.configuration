@@ -18,12 +18,12 @@ health:
     enabled: true
 
 owms:
-  srv:
-    protocol: http
-    hostname: localhost
   eureka:
     url: http://user:sa@localhost:8761
     zone: ${owms.eureka.url}/eureka/
+  srv:
+    protocol: http
+    hostname: localhost
 
 server:
   port: ${PORT:8099}

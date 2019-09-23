@@ -1,0 +1,24 @@
+Parameters:
+  GitHubSecret:
+    Type: String
+    Default: cookook
+    NoEcho: true
+
+Resources:
+  AppPipelineWebhook:
+    Type: 'AWS::CodePipeline::Webhook'
+    Properties:
+      Authentication: GITHUB_HMAC
+      AuthenticationConfiguration:
+        SecretToken: !Ref GitHubSecret
+      Filters:
+        - JsonPath: $.ref
+          MatchEquals: 'refs/heads/{Branch}'
+      TargetPipeline: !Ref AppPipeline
+      TargetAction: SourceAction
+      Name: AppPipelineWebhook
+      TargetPipelineVersion: !GetAtt
+        - AppPipeline
+        - Version
+      RegisterWithThirdParty: true
+

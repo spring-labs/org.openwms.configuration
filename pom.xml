@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>5</version>
+        <version>7</version>
         <relativePath />
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
@@ -15,24 +15,14 @@
 
     <issueManagement>
         <system>github</system>
-        <url>https://github.com/spring-labs/org.openwms.services/issues</url>
+        <url>https://github.com/spring-labs/org.openwms.configuration/issues</url>
     </issueManagement>
 
     <distributionManagement>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>OpenWMS.org Release Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-            <id>sonatype-nexus-staging</id>
-            <name>OpenWMS.org Snapshot Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <site>
             <id>ftp-io</id>
             <name>OpenWMS.org WebSite</name>
-            <url>ftp://ftp.interface21.io/docs/core/configuration</url>
+            <url>scp://ftp.interface21.io/docs/core/configuration</url>
         </site>
     </distributionManagement>
 
@@ -73,17 +63,15 @@
         </notifiers>
     </ciManagement>
 
-    <properties>
-        <guava.version>19.0</guava.version>
-    </properties>
-
-
     <build>
         <finalName>openwms-configuration</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -104,11 +92,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -116,13 +99,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
-            <exclusions>
-                <exclusion>
-                    <!-- Several versions of Guava used internally, exclude all -->
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

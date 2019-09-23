@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: ---
+
+Parameters:
+  AppName:
+    Description: EB Application Name
+    Type: String
+    Default: Archaius
+  EnvName:
+    Description: EB Environment Name
+    Type: String
+    Default: DEV
+
+Resources:
+  EBAPP:
+    Type: AWS::ElasticBeanstalk::Application
+    Properties :
+      ApplicationName : !Ref AppName
+
+  EBEnvironment:
+    Type: AWS::ElasticBeanstalk::Environment
+    Properties :
+      ApplicationName : !Ref EBAPP
+      CNAMEPrefix : pbghcorearchaius
+      EnvironmentName : !Ref EnvName
+      SolutionStackName: "64bit Amazon Linux 2018.03 v2.8.3 running Java 8"
