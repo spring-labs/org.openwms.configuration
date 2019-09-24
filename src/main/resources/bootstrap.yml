@@ -23,18 +23,10 @@ owms:
     zone: ${owms.eureka.url}/eureka/
   srv:
     protocol: http
-    hostname: localhost
+    hostname: ${server.address}
 
 server:
   port: ${PORT:8099}
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-logging:
-  file: "/tmp/owms/BOOT-CORE.log"
 
 eureka:
   client:
@@ -50,6 +42,14 @@ eureka:
       password: ${spring.security.user.password}
       protocol: ${owms.srv.protocol}
       zone: ${owms.eureka.zone}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  file: "/tmp/owms/BOOT-CORE-Service.log"
 
 ---
 spring:
@@ -75,13 +75,13 @@ eureka:
   instance:
     secure-port-enabled: true
     non-secure-port-enabled: false
-    status-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/info
-    health-check-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/health
-    home-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/
+    status-page-url: ${owms.srv.protocol}://${eureka.instance.hostname}:${server.port}/actuator/info
+    health-check-url: ${owms.srv.protocol}://${eureka.instance.hostname}:${server.port}/actuator/health
+    home-page-url: ${owms.srv.protocol}://${eureka.instance.hostname}:${server.port}/actuator/
 
 ---
 spring:
-  profiles: LOCAL
+  profiles: DEMO
   cloud:
     config:
       server:

@@ -12,7 +12,7 @@ Parameters:
     Default: spring-labs
   GitHubOAuthToken:
     Type: String
-    Default: 32bff8a6b7a1f0e0fb7ac4b42037974a633fcbf0
+    Default: ${GHTOKEN}
     NoEcho: true
   ApplicationName:
     Description: OpenWMS.org CORE Configuration Server
