@@ -49,7 +49,7 @@ management:
       exposure:
         include: "*"
 logging:
-  file: "/tmp/owms/BOOT-CORE-Service.log"
+  file: "/tmp/owms/BOOT-CORE-Config.log"
 
 ---
 spring:
@@ -75,16 +75,18 @@ eureka:
   instance:
     secure-port-enabled: true
     non-secure-port-enabled: false
-    status-page-url: ${owms.srv.protocol}://${eureka.instance.hostname}:${server.port}/actuator/info
-    health-check-url: ${owms.srv.protocol}://${eureka.instance.hostname}:${server.port}/actuator/health
-    home-page-url: ${owms.srv.protocol}://${eureka.instance.hostname}:${server.port}/actuator/
+    status-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/info
+    health-check-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/health
+    home-page-url: ${owms.srv.protocol}://${owms.srv.hostname}:${server.port}/actuator/
 
 ---
 spring:
-  profiles: DEMO
+  profiles: composite
   cloud:
     config:
       server:
-        native:
-          searchLocations: classpath:config/
+        composite:
+          - type: native
+            search-locations: classpath:config/
+        bootstrap: true
 

@@ -1,0 +1,15 @@
+owms:
+  tenant: ZILE
+  driver:
+    connections:
+      hostname: 0.0.0.0
+      identified-by-field: "osip_sender"
+      subsystems:
+        - name: SUBS1
+          inbound:
+            mode: server
+            port: 30001
+          outbound:
+            mode: server
+            port: 31001
+            identified-by-value: "SUBS1"
