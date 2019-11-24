@@ -23,7 +23,7 @@ owms:
     zone: ${owms.eureka.url}/eureka/
   srv:
     protocol: http
-    hostname: ${server.address}
+    hostname: localhost
 
 server:
   port: ${PORT:8099}
