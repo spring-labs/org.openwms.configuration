@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>12</version>
+        <version>14</version>
         <relativePath />
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
@@ -61,6 +61,10 @@
             </notifier>
         </notifiers>
     </ciManagement>
+
+    <properties>
+        <spring-cloud-dependencies.version>Hoxton.RC2</spring-cloud-dependencies.version>
+    </properties>
 
     <build>
         <finalName>openwms-configuration</finalName>
@@ -146,6 +150,14 @@
             <releases>
                 <enabled>false</enabled>
             </releases>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone-local</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 </project>
