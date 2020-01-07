@@ -9,7 +9,7 @@ mode is just for sample purpose and not used in real life projects. In productio
 Git repository.
 
 ```
-$ mvn package
+$ ./mvnw package
 $ java -Dspring.profiles.active=native -jar target/openwms-configuration.jar
 ```
 
@@ -24,7 +24,7 @@ docker run -p8099:8099 -d interface21/openwms-configuration:latest
 ## Release
 
 ```
-$ mvn clean deploy -Prelease,gpg
+$ ./mvn clean deploy -Prelease,gpg
 ```
 
 [ci-image]: https://img.shields.io/jenkins/s/http/openwms.mooo.com:8080/view/All/job/Spring%20Labs/job/org.openwms.configuration.svg
