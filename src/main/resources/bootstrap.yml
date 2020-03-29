@@ -49,7 +49,9 @@ management:
       exposure:
         include: "*"
 logging:
-  file: "/tmp/owms/BOOT-CORE-Config.log"
+  file:
+    name: BOOT-CORE-Config.log
+    path: "/tmp/owms"
 
 ---
 spring:
@@ -81,7 +83,7 @@ eureka:
 
 ---
 spring:
-  profiles: composite
+  profiles: native
   cloud:
     config:
       server:
