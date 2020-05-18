@@ -63,6 +63,7 @@
     </ciManagement>
 
     <properties>
+        <ameba-lib.version>2.4-SNAPSHOT</ameba-lib.version>
         <spring-cloud-dependencies.version>Hoxton.SR4</spring-cloud-dependencies.version>
     </properties>
 
@@ -139,6 +140,7 @@
         <dependency>
             <groupId>io.interface21</groupId>
             <artifactId>ameba-lib</artifactId>
+            <version>${ameba-lib.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jolokia</groupId>
