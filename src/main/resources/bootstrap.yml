@@ -91,4 +91,3 @@ spring:
           - type: native
             search-locations: classpath:config/
         bootstrap: true
-
