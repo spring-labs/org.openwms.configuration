@@ -63,7 +63,7 @@
     </ciManagement>
 
     <properties>
-        <guava.version>30.0-android</guava.version>
+        <guava.version>30.0-jre</guava.version>
         <servo-core.version>0.12.21</servo-core.version>
         <spring-cloud-dependencies.version>2020.0.0-SNAPSHOT</spring-cloud-dependencies.version>
     </properties>
