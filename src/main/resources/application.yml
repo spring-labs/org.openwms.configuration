@@ -85,11 +85,9 @@ eureka:
 spring:
   config:
     activate:
-      on-profile: composite
+      on-profile: native
   cloud:
     config:
       server:
-        composite:
-          - type: native
-            search-locations: classpath:config/
-        bootstrap: true
+        native:
+          search-locations: classpath:config/
