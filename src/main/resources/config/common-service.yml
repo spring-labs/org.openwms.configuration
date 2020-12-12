@@ -8,9 +8,7 @@ spring:
 
 ---
 spring:
-  config:
-    activate:
-      on-profile: ZILE
+  profiles: ZILE
   jpa:
     database: postgresql
     generate-ddl: true
