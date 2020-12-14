@@ -87,7 +87,6 @@ spring:
   cloud:
     config:
       server:
-        composite:
-          - type: native
-            search-locations: classpath:config/
+        native:
+          search-locations: classpath:config/
         bootstrap: true
