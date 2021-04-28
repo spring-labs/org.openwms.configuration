@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>19</version>
+        <version>20</version>
         <relativePath />
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
@@ -14,7 +14,7 @@
     <url>https://github.com/spring-labs/${project.artifactId}</url>
 
     <issueManagement>
-        <system>github</system>
+        <system>GitHub</system>
         <url>https://github.com/spring-labs/${project.artifactId}/issues</url>
     </issueManagement>
 
@@ -50,8 +50,8 @@
     </developers>
 
     <ciManagement>
-        <system>travis</system>
-        <url>https://travis-ci.com/spring-labs/${project.artifactId}</url>
+        <system>GitHub</system>
+        <url>https://github.com/spring-labs/${project.artifactId}/actions</url>
         <notifiers>
             <notifier>
                 <type>mail</type>
@@ -66,7 +66,8 @@
         <commons-configuration.version>1.10</commons-configuration.version>
         <guava.version>30.0-jre</guava.version>
         <HdrHistogram.version>2.1.12</HdrHistogram.version>
-        <spring-cloud-dependencies.version>Hoxton.SR9</spring-cloud-dependencies.version>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <spring-cloud-dependencies.version>2020.0.2</spring-cloud-dependencies.version>
     </properties>
 
     <reporting>
@@ -132,6 +133,12 @@
                 <groupId>org.hdrhistogram</groupId>
                 <artifactId>HdrHistogram</artifactId>
                 <version>${HdrHistogram.version}</version>
+            </dependency>
+            <dependency>
+                <!-- com.netflix.eureka:eureka has an internal clash -->
+                <groupId>com.netflix.servo</groupId>
+                <artifactId>servo-core</artifactId>
+                <version>0.12.21</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
