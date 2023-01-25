@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>22</version>
+        <version>23</version>
         <relativePath />
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
@@ -64,10 +64,8 @@
 
     <properties>
         <guava.version>30.0-jre</guava.version>
-        <plexus-utils.version>3.2.1</plexus-utils.version>
         <servo-core.version>0.12.21</servo-core.version>
         <spring-cloud-dependencies.version>2021.0.5</spring-cloud-dependencies.version>
-        <wagon-provider-api.version>3.3.4</wagon-provider-api.version>
     </properties>
 
     <reporting>
@@ -126,18 +124,6 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <!-- Clash in org.springframework.cloud:spring-cloud-starter-stream-rabbit -->
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-provider-api</artifactId>
-                <version>${wagon-provider-api.version}</version>
-            </dependency>
-            <dependency>
-                <!-- Clash in org.springframework.cloud:spring-cloud-starter-stream-rabbit -->
-                <groupId>org.codehaus.plexus</groupId>
-                <artifactId>plexus-utils</artifactId>
-                <version>${plexus-utils.version}</version>
             </dependency>
             <dependency>
                 <!-- com.netflix.eureka:eureka has an internal clash -->
