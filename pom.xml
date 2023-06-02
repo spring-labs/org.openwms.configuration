@@ -251,4 +251,14 @@
             </releases>
         </pluginRepository>
     </pluginRepositories>
+
+    <profiles>
+        <profile>
+            <id>release-project</id>
+            <properties>
+                <developerConnectionUrl>scm:git:https://openwms@github.com/spring-labs/${project.artifactId}.git</developerConnectionUrl>
+                <scmpublish.pubScmUrl>scm:git:https://openwms@github.com/spring-labs/${project.artifactId}.git</scmpublish.pubScmUrl>
+            </properties>
+        </profile>
+    </profiles>
 </project>
