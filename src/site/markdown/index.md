@@ -1,6 +1,6 @@
 # org.openwms.configuration
 A Spring Boot configuration service, built on top of Netflix Archaius. The purpose of this service is to provide technical microservice
-configuration centrally managed across the whole application. Furthermore, this set of configuration files can be kept in separate project
+configuration centrally managed across the whole application. Furthermore, this set of configuration files can be kept in separate project 
 specific repositories to keep the configuration service project independent. It can be configured to push configuration changes directly
 out to the certain services and trigger a configuration reload without the need to restart the downstream service.
 
