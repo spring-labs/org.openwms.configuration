@@ -107,7 +107,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <executable>true</executable>
                     <layers>
                         <configuration>${project.basedir}/src/layers.xml</configuration>
                         <enabled>true</enabled>
