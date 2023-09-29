@@ -4,12 +4,13 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>24</version>
+        <version>25</version>
         <relativePath />
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
     <version>2.1.0-SNAPSHOT</version>
     <name>OpenWMS.org CORE: Configuration Service</name>
+    <description>A configuration service that provides arbitrary configuration parameters for microservices at a central place</description>
     <url>https://github.com/spring-labs/${project.artifactId}</url>
 
     <issueManagement>
@@ -65,7 +66,7 @@
     <properties>
         <guava.version>30.0-jre</guava.version>
         <servo-core.version>0.12.21</servo-core.version>
-        <spring-cloud-dependencies.version>2021.0.7</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>2021.0.8</spring-cloud-dependencies.version>
     </properties>
 
     <reporting>
@@ -125,7 +126,7 @@
                 <version>${guava.version}</version>
             </dependency>
             <dependency>
-                <!-- com.netflix.eureka:eureka has an internal clash -->
+                <!-- Clash in org.springframework.cloud:spring-cloud-starter-netflix-eureka-client -->
                 <groupId>com.netflix.servo</groupId>
                 <artifactId>servo-core</artifactId>
                 <version>${servo-core.version}</version>
@@ -172,7 +173,6 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
         </dependency>
 
         <!-- 3rd party dependencies -->
@@ -184,6 +184,11 @@
         <dependency>
             <groupId>io.interface21</groupId>
             <artifactId>ameba-lib</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.jolokia</groupId>
@@ -222,6 +227,9 @@
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
         </repository>
         <repository>
             <id>spring-milestones</id>
@@ -230,6 +238,9 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </repository>
     </repositories>
     <pluginRepositories>
@@ -240,11 +251,17 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </pluginRepository>
         <pluginRepository>
             <id>sonatype-nexus-snapshots</id>
             <name>Snapshot Repository</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
             <releases>
                 <enabled>false</enabled>
             </releases>
