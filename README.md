@@ -4,14 +4,6 @@ configuration centrally managed across the whole application. Furthermore, this 
 specific repositories to keep the configuration service project independent. It can be configured to push configuration changes directly
 out to the certain services and trigger a configuration reload without the need to restart the downstream service.
 
-# Resources
-
-[![Build status](https://github.com/spring-labs/org.openwms.configuration/actions/workflows/master-build.yml/badge.svg)](https://github.com/spring-labs/org.openwms.configuration/actions/workflows/master-build.yml)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Maven central](https://img.shields.io/maven-central/v/org.openwms/org.openwms.configuration)](https://search.maven.org/search?q=a:org.openwms.configuration)
-[![Docker pulls](https://img.shields.io/docker/pulls/interface21/openwms-configuration)](https://hub.docker.com/r/interface21/openwms-configuration)
-[![Join the chat at https://gitter.im/openwms/org.openwms](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openwms/org.openwms?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 # Build and Run Locally
 The easiest way to run the configuration server locally is in `native` mode without pointing to an external Git repository. In this mode,
 the server tries to resolve all configuration files locally, either from classpath or a file location. The server could also be configured
@@ -48,3 +40,11 @@ A release and upload of this service can be done:
 $ ./mvn release:prepare
 $ ./mvn release:perform
 ```
+
+# Resources
+
+[![Build status](https://github.com/spring-labs/org.openwms.configuration/actions/workflows/master-build.yml/badge.svg)](https://github.com/spring-labs/org.openwms.configuration/actions/workflows/master-build.yml)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+[![Maven central](https://img.shields.io/maven-central/v/org.openwms/org.openwms.configuration)](https://search.maven.org/search?q=a:org.openwms.configuration)
+[![Docker pulls](https://img.shields.io/docker/pulls/interface21/openwms-configuration)](https://hub.docker.com/r/interface21/openwms-configuration)
+[![Join the chat at https://gitter.im/openwms/org.openwms](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/openwms/org.openwms?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
