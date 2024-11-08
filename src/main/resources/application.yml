@@ -11,20 +11,16 @@ spring:
           default-label: master
   security:
     user:
-      password: sa
       name: user
-
-health:
-  config:
-    enabled: true
+      password: sa
 
 owms:
   eureka:
     url: http://user:sa@localhost:8761
     zone: ${owms.eureka.url}/eureka/
   srv:
-    protocol: http
     hostname: localhost
+    protocol: http
 
 server:
   port: ${PORT:8099}
@@ -34,27 +30,52 @@ eureka:
     healthcheck:
       enabled: true
     instance-info-replication-interval-seconds: 10 # default is 30
+    registryFetchIntervalSeconds: 5 # SBA
     service-url:
       defaultZone: ${owms.eureka.zone} # Must be camelCase
   instance:
     hostname: ${owms.srv.hostname}
-    secure-port-enabled: false
-    non-secure-port-enabled: true
+    # Request a lease with a validity of 5 seconds. If until then the
+    # lease has not been renewed, it expires and the Eureka server can evict it.
+    # Default: 90s
+    lease-expiration-duration-in-seconds: 5
+
+    # The cadence of lease renewal, i.e. how often a heartbeat is sent to Eureka server.
+    # In this case every 2 seconds. Use this only for development / debugging. In production use the ...
+    # Default: 30s
+    lease-renewal-interval-in-seconds:    2
     metadata-map:
+      group: CORE
       username: ${spring.security.user.name}
       password: ${spring.security.user.password}
       protocol: ${owms.srv.protocol}
+      startup: ${random.int} # SBA
       zone: ${owms.eureka.zone}
+      "prometheus.scrape": "true"
+      "prometheus.path": "/actuator/prometheus"
+      "prometheus.port": "8099"
+    non-secure-port-enabled: true
+    prefer-ip-address: true
+    secure-port-enabled: false
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-logging:
-  file:
-    name: BOOT-CORE-Config.log
-    path: "/tmp/owms"
+  health:
+    rabbit:
+      enabled: false
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  info:
+    git:
+      mode: simple
+  prometheus:
+    metrics:
+      export:
+        enabled: true
 
 ---
 spring:
