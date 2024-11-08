@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>25</version>
+        <version>26</version>
         <relativePath />
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
@@ -30,7 +30,7 @@
         <connection>scm:git:https://${scmuser}github.com/spring-labs/${project.artifactId}.git</connection>
         <developerConnection>scm:git:https://${scmuser}github.com/spring-labs/${project.artifactId}.git</developerConnection>
         <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <developers>
         <developer>
@@ -64,9 +64,11 @@
     </ciManagement>
 
     <properties>
+        <ameba-lib.version>4.1-SNAPSHOT</ameba-lib.version>
         <guava.version>32.0.0-jre</guava.version>
+        <httpclient.version>4.5.14</httpclient.version>
         <servo-core.version>0.12.21</servo-core.version>
-        <spring-cloud-dependencies.version>2021.0.8</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>2023.0.1</spring-cloud-dependencies.version>
     </properties>
 
     <reporting>
@@ -130,6 +132,12 @@
                 <groupId>com.netflix.servo</groupId>
                 <artifactId>servo-core</artifactId>
                 <version>${servo-core.version}</version>
+            </dependency>
+            <dependency>
+                <!-- Internal clash in Spring Cloud -->
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
