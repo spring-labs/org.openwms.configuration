@@ -10,7 +10,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Apache Maven Doxia Site Renderer 2.0.0" />
-    <title>org.openwms.configuration – OpenWMS.org CORE: Configuration Service</title>
+    <title>OpenWMS.org Configuration Server – OpenWMS.org CORE: Configuration Service</title>
     <link rel="stylesheet" href="./css/apache-maven-fluido-2.0.0.min.css" />
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
@@ -84,8 +84,8 @@
         </div>
       </header>
         <main id="bodyColumn">
-<section><a id="org.openwms.configuration"></a>
-<h1>org.openwms.configuration</h1>
+<section><a id="OpenWMS.org_Configuration_Server"></a>
+<h1>OpenWMS.org Configuration Server</h1>
 <p>A Spring Boot configuration service, built on top of Netflix Archaius. The purpose of this service is to provide technical microservice
 configuration centrally managed across the whole application. Furthermore, this set of configuration files can be kept in separate project
 specific repositories to keep the configuration service project independent. It can be configured to push configuration changes directly
@@ -94,7 +94,7 @@ out to the certain services and trigger a configuration reload without the need 
 <p>The easiest way to run the configuration server locally is in <code>native</code> mode without pointing to an external Git repository. In this mode,
 the server tries to resolve all configuration files locally, either from classpath or a file location. The server could also be configured
 to fetch the configuration files at startup from a Git repository.</p>
-<p>Build locally:</p>
+<p>Build and run locally:</p>
 
 <pre class="prettyprint linenums"><code class="nohighlight nocode">$ ./mvnw package
 $ java -Dspring.profiles.active=native \ 
