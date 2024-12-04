@@ -21,7 +21,7 @@
             </topBarIcon>
             <sourceLineNumbersEnabled>true</sourceLineNumbersEnabled>
             <gitHub>
-                <projectId>openwms/${project.artifactId}</projectId>
+                <projectId>spring-labs/${project.artifactId}</projectId>
                 <ribbonOrientation>left</ribbonOrientation>
                 <ribbonColor>black</ribbonColor>
             </gitHub>
