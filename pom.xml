@@ -217,7 +217,7 @@
         </dependency>
         <dependency>
             <groupId>org.jolokia</groupId>
-            <artifactId>jolokia-support-spring</artifactId>
+            <artifactId>jolokia-core</artifactId>
             <scope>runtime</scope>
         </dependency>
 
