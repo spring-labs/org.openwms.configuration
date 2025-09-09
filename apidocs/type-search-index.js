@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.openwms.config","l":"ConfigurationServerRunner"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.openwms.config","l":"ConfigurationServerOtlpConfiguration"},{"p":"org.openwms.config","l":"ConfigurationServerRunner"},{"p":"org.openwms.config","l":"ConfigurationServerOtlpConfiguration.OtelConfiguration"}];updateSearchResults();
