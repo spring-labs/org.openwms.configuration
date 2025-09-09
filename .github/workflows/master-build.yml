@@ -40,7 +40,7 @@ jobs:
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - uses: s4u/maven-settings-action@v2.8.0
+      - uses: s4u/maven-settings-action@v4.0.0
         with:
           servers: |
             [{
