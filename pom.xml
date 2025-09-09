@@ -64,7 +64,7 @@
     </ciManagement>
 
     <properties>
-        <error_prone_annotations.version>2.38.0</error_prone_annotations.version>
+        <error_prone_annotations.version>2.40.0</error_prone_annotations.version>
         <httpclient.version>4.5.14</httpclient.version>
         <joda-time.version>2.12.7</joda-time.version>
         <spring-cloud-dependencies.version>2025.0.0</spring-cloud-dependencies.version>
@@ -181,11 +181,24 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-tracing-bridge-otel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp</artifactId>
+        </dependency>
 
         <!-- 3rd party dependencies -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -204,8 +217,14 @@
         </dependency>
         <dependency>
             <groupId>org.jolokia</groupId>
-            <artifactId>jolokia-core</artifactId>
+            <artifactId>jolokia-support-spring</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
