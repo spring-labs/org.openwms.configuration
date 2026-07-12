@@ -66,6 +66,7 @@
     </ciManagement>
 
     <properties>
+        <ameba-lib.version>4.3.1-SNAPSHOT</ameba-lib.version>
         <error_prone_annotations.version>2.50.0</error_prone_annotations.version>
         <httpclient.version>4.5.14</httpclient.version>
         <joda-time.version>2.12.7</joda-time.version>
