@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.openwms</groupId>
         <artifactId>org.openwms.parent</artifactId>
-        <version>27.6</version>
+        <version>28.0</version>
         <relativePath/>
     </parent>
     <artifactId>org.openwms.configuration</artifactId>
@@ -66,10 +66,10 @@
     </ciManagement>
 
     <properties>
-        <error_prone_annotations.version>2.40.0</error_prone_annotations.version>
+        <error_prone_annotations.version>2.50.0</error_prone_annotations.version>
         <httpclient.version>4.5.14</httpclient.version>
         <joda-time.version>2.12.7</joda-time.version>
-        <spring-cloud-dependencies.version>2025.0.0</spring-cloud-dependencies.version>
+        <spring-cloud-dependencies.version>2025.1.2</spring-cloud-dependencies.version>
     </properties>
 
     <reporting>
@@ -110,12 +110,6 @@
                         </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <layers>
-                        <configuration>${project.basedir}/src/layers.xml</configuration>
-                        <enabled>true</enabled>
-                    </layers>
-                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -123,7 +117,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <!-- Clash in org.springframework.cloud:spring-cloud-starter-netflix-eureka-client -->
+                <!-- Clash between com.github.ben-manes.caffeine:caffeine and org.springframework.cloud:spring-cloud-starter-netflix-eureka-client -->
                 <groupId>com.google.errorprone</groupId>
                 <artifactId>error_prone_annotations</artifactId>
                 <version>${error_prone_annotations.version}</version>
@@ -135,7 +129,7 @@
                 <version>${joda-time.version}</version>
             </dependency>
             <dependency>
-                <!-- Internal clash in Spring Cloud -->
+                <!-- Clash between spring-cloud-config-server (jgit) and spring-cloud-starter-netflix-eureka-client -->
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${httpclient.version}</version>
@@ -191,6 +185,10 @@
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-otlp</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-micrometer-tracing-opentelemetry</artifactId>
+        </dependency>
 
         <!-- 3rd party dependencies -->
         <dependency>
@@ -217,12 +215,6 @@
             <artifactId>logstash-logback-encoder</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.jolokia</groupId>
-            <artifactId>jolokia-core</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -1,8 +1,10 @@
 # OpenWMS.org Configuration Server
-A Spring Boot configuration service, built on top of Netflix Archaius. The purpose of this service is to provide technical microservice
+A configuration service, built on top of Spring Cloud Config Server. The purpose of this service is to provide technical microservice
 configuration centrally managed across the whole application. Furthermore, this set of configuration files can be kept in separate project
 specific repositories to keep the configuration service project independent. It can be configured to push configuration changes directly
 out to the certain services and trigger a configuration reload without the need to restart the downstream service.
+
+The service is built with Java 25 on Spring Boot 4.1 and Spring Cloud 2025.1.
 
 # Build and Run Locally
 The easiest way to run the configuration server locally is in `native` mode without pointing to an external Git repository. In this mode,

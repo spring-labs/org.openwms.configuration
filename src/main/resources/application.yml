@@ -26,8 +26,6 @@ owms:
   srv:
     hostname: localhost
     protocol: http
-  tracing:
-    url: http://localhost:4317
 
 server:
   port: ${PORT:8099}
@@ -80,25 +78,14 @@ management:
   info:
     git:
       mode: simple
-  metrics:
-    distribution:
-      percentiles-histogram:
-        greeting: true
-        http:
-          server:
-            requests: true
-    tags:
-      application: ${spring.application.name}
   otlp:
-    tracing:
-      endpoint: ${owms.tracing.url}
+    metrics:
+      export:
+        enabled: false # Metrics are scraped by Prometheus, OTLP is only used for traces
   prometheus:
     metrics:
       export:
         enabled: true
-  tracing:
-    sampling:
-      probability: 1.0
 
 ---
 spring:

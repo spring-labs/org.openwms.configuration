@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2025 the original author or authors.
+ * Copyright 2005-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,14 +15,8 @@
  */
 package org.openwms.config;
 
-import io.micrometer.core.instrument.MeterRegistry;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
-import org.springframework.context.annotation.Bean;
 
 /**
  * A ConfigurationServerRunner.
@@ -30,14 +24,7 @@ import org.springframework.context.annotation.Bean;
  * @author Heiko Scherrer
  */
 @SpringBootApplication(scanBasePackages = "org.openwms")
-@EnableConfigServer
-@EnableDiscoveryClient
 public class ConfigurationServerRunner {
-
-    @Bean
-    MeterRegistryCustomizer<MeterRegistry> metricsCommonTags(@Value("${spring.application.name}") String applicationName) {
-        return registry -> registry.config().commonTags("application", applicationName);
-    }
 
     /**
      * Boot up!

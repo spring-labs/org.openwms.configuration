@@ -2,6 +2,7 @@
 /build/
 /bin/
 target/
+docs/
 **/${project.build.directory}/
 /null/
 libs/
@@ -16,7 +17,8 @@ libs/
 **/javadoc.sh
 **/options
 *.class
- 
+CLAUDE.md
+
 # Package Files #
 *.jar
 *.war
