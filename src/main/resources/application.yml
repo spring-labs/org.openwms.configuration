@@ -13,6 +13,9 @@ spring:
     user:
       name: user
       password: sa
+  threads:
+    virtual:
+      enabled: true
 
 owms:
   eureka:
