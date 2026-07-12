@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.openwms.config","l":"ConfigurationServerOtlpConfiguration"},{"p":"org.openwms.config","l":"ConfigurationServerRunner"},{"p":"org.openwms.config","l":"ConfigurationServerOtlpConfiguration.OtelConfiguration"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"},{"p":"org.openwms.config.app","l":"ConfigurationServerModuleConfiguration"},{"p":"org.openwms.config","l":"ConfigurationServerRunner"}];updateSearchResults();
